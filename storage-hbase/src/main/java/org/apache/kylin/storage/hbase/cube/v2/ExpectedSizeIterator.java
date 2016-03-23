@@ -18,6 +18,11 @@
 
 package org.apache.kylin.storage.hbase.cube.v2;
 
+import java.util.Iterator;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.TimeUnit;
+
 import org.apache.commons.lang.NotImplementedException;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.hbase.HConstants;
@@ -26,11 +31,6 @@ import org.apache.kylin.common.debug.BackdoorToggles;
 import org.apache.kylin.storage.hbase.HBaseConnection;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.util.Iterator;
-import java.util.concurrent.ArrayBlockingQueue;
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.TimeUnit;
 
 class ExpectedSizeIterator implements Iterator<byte[]> {
     private static final Logger logger = LoggerFactory.getLogger(ExpectedSizeIterator.class);
